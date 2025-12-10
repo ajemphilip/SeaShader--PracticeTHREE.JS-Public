@@ -16,8 +16,6 @@ uniform float uSmallWaveFrequency;
 uniform float uSmallWaveSpeed;
 uniform float uSmallIterations;
 
-const float iterations = uSmallIterations
-
 attribute vec3 position;
 attribute vec2 uv;
 varying vec3 vColor1;
