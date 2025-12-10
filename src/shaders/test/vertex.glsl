@@ -1,6 +1,4 @@
-uniform mat4 projectionMatrix;
-uniform mat4 modelMatrix;
-uniform mat4 viewMatrix;
+
 uniform float uTime;
 uniform vec3 uColor1;
 uniform vec3 uColor2;
@@ -16,8 +14,7 @@ uniform float uSmallWaveFrequency;
 uniform float uSmallWaveSpeed;
 uniform float uSmallIterations;
 
-attribute vec3 position;
-attribute vec2 uv;
+
 varying vec3 vColor1;
 varying vec3 vColor2;
 varying float vColorOffset;
@@ -117,7 +114,7 @@ void main() {
     float elevation = sin(modelProjection.x * uBigWaveFrequencyX + uTime ) * sin(modelProjection.z * uBigWaveFrequencyY + uTime ) * uBigWaveElevation;
     elevation -= abs(cnoise(vec3(modelProjection.xz * 3.0, uTime * 0.2))* 0.15) ;
    
-    for(float i = 1.0; i <= 4.0; i++) {
+    for(float i = 1.0; i <= uSmallIterations; i++) {
 
        elevation -= abs(cnoise(vec3(modelProjection.xz * uSmallWaveFrequency * i, uTime * uSmallWaveSpeed)) * uSmallWaveElevation / i) ;
     }

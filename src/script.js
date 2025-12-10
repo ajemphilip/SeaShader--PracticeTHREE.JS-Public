@@ -27,7 +27,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
 const geometry = new THREE.PlaneGeometry(2, 2, 512, 512);
-const material = new THREE.RawShaderMaterial({
+const material = new THREE.ShaderMaterial({
     vertexShader: vertex,
     fragmentShader: fragment, 
     transparent: true,
